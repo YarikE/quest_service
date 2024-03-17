@@ -2,13 +2,14 @@ version: "3.9"
 
 services:
   postgres:
+    container_name: postgres
     image: postgres:13.3
     environment:
       POSTGRES_DB: "postgres"
       POSTGRES_USER: "db-user"
       POSTGRES_PASSWORD: "123"
     ports:
-      - "5432:5432"
+      - "2555:5432"
 
   app:
     container_name: app
@@ -17,3 +18,5 @@ services:
       - "8000:8000"
     depends_on:
       - postgres
+    volumes:
+      - ./quest-app:/quest-app

@@ -28,7 +28,7 @@ class MakeTaskService
 
             // Если нет задания
             if (!self::validateQuest($quest)) {
-                return $response->setResult(false)->setMessage("Нет задания c id $questId");
+                return $response->setResult(false)->setMessage("Нет задания с id $questId");
             }
 
             $done_tasks_amount = 1;
@@ -56,7 +56,7 @@ class MakeTaskService
             // Если нужно выдать пользователю вознаграждение за выполнение задания
             if ($updateResult['giveReward']) {
                 $user = QuestAppRepository::getUser($userId);
-                $userBalance = $user->balance + $quest->coast;
+                $userBalance = $user->balance + $quest->cost;
                 QuestAppRepository::updateUserBalance($userId, $userBalance);
             }
 

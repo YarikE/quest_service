@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('quest', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('coast');
+            $table->integer('cost');
             $table->integer('tasks_amount');
             $table->integer('accessible_quest_amount');
         });

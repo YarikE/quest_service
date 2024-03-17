@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int    $id                      Id пользователя
  * @property string $name                    Название задания
- * @property int    $coast                   Стоимость задания
+ * @property int    $cost                    Стоимость задания
  * @property int    $tasks_amount            Кол-во задач задания
  * @property int    $accessible_quest_amount Кол-во доступных заданий
  */
@@ -27,7 +27,7 @@ class Quest extends Model
     protected $fillable = [
         'id',
         'name',
-        'coast',
+        'cost',
         'tasks_amount',
         'accessible_quest_amount',
     ];
