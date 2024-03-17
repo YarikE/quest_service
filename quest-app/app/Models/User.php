@@ -27,4 +27,6 @@ class User extends Model
         'name',
         'balance',
     ];
+
+    public $timestamps = false;
 }

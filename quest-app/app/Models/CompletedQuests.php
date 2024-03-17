@@ -29,4 +29,6 @@ class CompletedQuests extends Model
         'done_tasks_amount',
         'done_quests_amount',
     ];
+
+    public $timestamps = false;
 }
