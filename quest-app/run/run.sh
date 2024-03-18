@@ -1,4 +1,4 @@
-# lala
+# Installing dependencies
 php -f composer.phar install
 
 # Migrate db

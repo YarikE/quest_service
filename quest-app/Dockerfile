@@ -18,4 +18,4 @@ WORKDIR /quest-app/
 
 EXPOSE 8000
 
-ENTRYPOINT ls /quest-app/ && /quest-app/run/run.sh
+ENTRYPOINT /quest-app/run/run.sh
