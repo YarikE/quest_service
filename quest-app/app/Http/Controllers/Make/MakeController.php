@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Make;
+namespace app\Http\Controllers\Make;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -9,7 +9,7 @@ use App\Service\makeTask\MakeTaskService;
 class MakeController extends Controller
 {
     /**
-     * Action url: /make/make-task
+     * Action url: /make/task
      *
      * @param Request $request
      *

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Info;
+namespace app\Http\Controllers\Info;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -10,7 +10,7 @@ use App\Service\userInfo\UserInfoService;
 class InfoController extends Controller
 {
     /**
-     * Action url: /info/user-info
+     * Action url: /info/user
      *
      * @param Request $request
      * @return JsonResponse
