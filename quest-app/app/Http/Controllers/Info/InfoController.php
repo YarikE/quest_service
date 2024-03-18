@@ -13,6 +13,7 @@ class InfoController extends Controller
      * Action url: /info/user
      *
      * @param Request $request
+     *
      * @return JsonResponse
      */
     public function userInfo(Request $request): JsonResponse

@@ -1,5 +1,5 @@
 <?php
-namespace App\Repository;
+namespace app\Repository;
 
 use App\Models\CompletedQuests;
 use App\Models\Quest;
@@ -67,6 +67,16 @@ class QuestAppRepository
     public static function getQuest(int $questId): null|Quest
     {
         return Quest::find($questId);
+    }
+
+    /**
+     * Получить список всех задач, проиндексированных по id
+     *
+     * @return array
+     */
+    public static function getAllQuests(): array
+    {
+        return Quest::all()->keyBy('id')->toArray();
     }
 
     /**

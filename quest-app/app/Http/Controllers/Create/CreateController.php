@@ -12,6 +12,7 @@ class CreateController extends Controller
      * Action url: /create/user
      *
      * @param Request $request
+     *
      * @return JsonResponse
      */
     public function createUser(Request $request): JsonResponse
@@ -23,6 +24,7 @@ class CreateController extends Controller
      * Action url: /create/quest
      *
      * @param Request $request
+     *
      * @return JsonResponse
      */
     public function createQuest(Request $request): JsonResponse

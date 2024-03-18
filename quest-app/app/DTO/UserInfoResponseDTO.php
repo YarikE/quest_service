@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DTO;
+namespace app\DTO;
 
 use App\DTO\interfaces\ResponseDTOInterface;
 use Illuminate\Http\JsonResponse;
@@ -15,19 +15,19 @@ use Illuminate\Http\JsonResponse;
 class UserInfoResponseDTO implements ResponseDTOInterface
 {
     /**
-     * @var string $name Имя пользователя
+     * @var string Имя пользователя
      */
-    public string $name;
+    public string $user_name;
 
 
     /**
-     * @var array $questHistory История выполнения заданий
+     * @var array История выполнения заданий
      */
-    public array $questHistory;
+    public array $quest_history;
 
 
     /**
-     * @var int $balance Баланс пользователя
+     * @var int Баланс пользователя
      */
     public int $balance;
 
@@ -41,7 +41,7 @@ class UserInfoResponseDTO implements ResponseDTOInterface
      */
     public function setName(string $name): UserInfoResponseDTO
     {
-        $this->name = $name;
+        $this->user_name = $name;
         return $this;
     }
 
@@ -55,7 +55,7 @@ class UserInfoResponseDTO implements ResponseDTOInterface
      */
     public function setQuestHistory(array $questHistory): UserInfoResponseDTO
     {
-        $this->questHistory = $questHistory;
+        $this->quest_history = $questHistory;
         return $this;
     }
 

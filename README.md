@@ -69,7 +69,7 @@ git clone https://github.com/YarikE/quest_service.git
 cd quest_service/quest-app/
 ~~~
 
-#### 3. Создайте .env файл на основе .env.expamle
+#### 3. Создайте .env файл на основе .env.example
 ~~~
 cp .env.example .env
 ~~~

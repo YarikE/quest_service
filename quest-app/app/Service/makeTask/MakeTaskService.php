@@ -1,5 +1,5 @@
 <?php
-namespace App\Service\makeTask;
+namespace app\Service\makeTask;
 
 use App\DTO\MessageResponseDTO;
 use App\Models\CompletedQuests;
@@ -114,8 +114,8 @@ class MakeTaskService
         int $done_quests_amount = 0,
     ): array
     {
-        if ($quest->tasks_amount == $done_tasks_amount + 1) {
-            return ['done_tasks_amount' => 0, 'done_quests_amount' => $done_quests_amount + 1, 'giveReward' => true];
+        if ($quest->tasks_amount < $done_tasks_amount + 1) {
+            return ['done_tasks_amount' => 1, 'done_quests_amount' => $done_quests_amount + 1, 'giveReward' => true];
         }
 
         return ['done_tasks_amount' => $done_tasks_amount + 1, 'done_quests_amount' => $done_quests_amount, 'giveReward' => false];

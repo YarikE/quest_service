@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DTO;
+namespace app\DTO;
 
 use Illuminate\Http\JsonResponse;
 use App\DTO\interfaces\ResponseDTOInterface;
