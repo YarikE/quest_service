@@ -31,21 +31,21 @@ REST API сервис, засчитывающий задания для поль
 ---
 
 #### 3. Выполнение задания (GET):
-```http://localhost:8000/api/make/make-task```
+```http://localhost:8000/api/make/task```
 
 Пример запроса с параметрами:
 
-```http://localhost:8000/api/make/make-task?userId=1&questId=6```
+```http://localhost:8000/api/make/task?userId=1&questId=6```
 
 ---
 
 #### 4. Получение информации о пользователе (GET):
 
-```http://localhost:8000/api/info/user-info```
+```http://localhost:8000/api/info/user```
 
 Пример запроса с параметрами:
 
-```http://localhost:8000/api/info/user-info?userId=1```
+```http://localhost:8000/api/info/user?userId=1```
 
 ---
 
