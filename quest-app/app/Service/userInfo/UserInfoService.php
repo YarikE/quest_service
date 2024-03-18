@@ -1,5 +1,5 @@
 <?php
-namespace app\Service\userInfo;
+namespace App\Service\userInfo;
 
 use App\Models\User;
 use App\Models\Quest;

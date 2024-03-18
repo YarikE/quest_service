@@ -1,10 +1,10 @@
 <?php
-namespace app\Service\makeTask;
+namespace App\Service\makeTask;
 
 use App\DTO\MessageResponseDTO;
 use App\Models\CompletedQuests;
 use App\Models\Quest;
-use app\Models\User;
+use App\Models\User;
 use App\Repository\QuestAppRepository;
 
 class MakeTaskService

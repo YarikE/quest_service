@@ -1,5 +1,5 @@
 <?php
-namespace app\Repository;
+namespace App\Repository;
 
 use App\Models\CompletedQuests;
 use App\Models\Quest;
