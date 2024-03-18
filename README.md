@@ -24,7 +24,7 @@ REST API сервис, засчитывающий задания для поль
 
 Пример запроса с параметрами:
 
-```http://0.0.0.0:8000/api/create/quest?name=test&coast=50&tasks_amount=3&accessible_quest_amount=3```
+```http://0.0.0.0:8000/api/create/quest?name=test&cost=50&tasks_amount=3&accessible_quest_amount=3```
 
 ---
 
