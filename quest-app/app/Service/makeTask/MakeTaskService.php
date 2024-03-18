@@ -4,6 +4,7 @@ namespace app\Service\makeTask;
 use App\DTO\MessageResponseDTO;
 use App\Models\CompletedQuests;
 use App\Models\Quest;
+use app\Models\User;
 use App\Repository\QuestAppRepository;
 
 class MakeTaskService
@@ -20,24 +21,28 @@ class MakeTaskService
     {
         $response = new MessageResponseDTO;
 
-        $completedQuest = QuestAppRepository::getCompletedQuest($userId, $questId);
         $quest = QuestAppRepository::getQuest($questId);
+        $user = QuestAppRepository::getUser($userId);
+
+        // Если нет пользователя
+        if (!self::validateUser($user)) {
+            return $response->setResult(false)->setMessage("Нет пользователя с id $userId");
+        }
+
+        // Если нет задания
+        if (!self::validateQuest($quest)) {
+            return $response->setResult(false)->setMessage("Нет задания с id $questId");
+        }
+
+        $completedQuest = QuestAppRepository::getCompletedQuest($userId, $questId);
 
         // Если нет прогесса по конкретному заданию у пользователя
         if (!self::validateCompletedQuest($completedQuest)) {
 
-            // Если нет задания
-            if (!self::validateQuest($quest)) {
-                return $response->setResult(false)->setMessage("Нет задания с id $questId");
-            }
+            $updateResult = self::getUpdatedTasksAndQuestsAmount($quest);
 
-            $done_tasks_amount = 1;
-
-            if ($quest->tasks_amount == $done_tasks_amount) {
-                $done_quests_amount = 1;
-            } else {
-                $done_quests_amount = 0;
-            }
+            $done_tasks_amount = $updateResult['done_tasks_amount'];
+            $done_quests_amount = $updateResult['done_quests_amount'];
 
             QuestAppRepository::createCompletedQuest($userId, $questId, $done_tasks_amount, $done_quests_amount);
 
@@ -55,13 +60,12 @@ class MakeTaskService
 
             // Если нужно выдать пользователю вознаграждение за выполнение задания
             if ($updateResult['giveReward']) {
-                $user = QuestAppRepository::getUser($userId);
+
                 $userBalance = $user->balance + $quest->cost;
                 QuestAppRepository::updateUserBalance($userId, $userBalance);
             }
 
             QuestAppRepository::updateCompletedQuest($completedQuest, $done_tasks_amount, $done_quests_amount);
-
         }
         return $response->setResult(true)->setMessage('Задача успешно выполнена');
     }
@@ -96,6 +100,21 @@ class MakeTaskService
             return true;
         }
         return false;
+    }
+
+
+    /**
+     * Валидация данных о пользователе
+     *
+     * @param User|null $user
+     * @return bool
+     */
+    public static function validateUser(User|null $user): bool
+    {
+        if (is_null($user)) {
+            return false;
+        }
+        return true;
     }
 
 

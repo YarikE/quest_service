@@ -20,19 +20,18 @@ class UserInfoService
     public static function getUserInfo($userId): UserInfoResponseDTO|MessageResponseDTO
     {
         $user = QuestAppRepository::getUser($userId);
-        if (self::validateUser($user)) {
+        if (!self::validateUser($user)) {
             $response = new MessageResponseDTO();
             $response
                 ->setResult(false)
                 ->setMessage('Такого пользователя не существует');
+            return $response;
         }
 
         $response = new UserInfoResponseDTO();
 
-        $userData = QuestAppRepository::getUser($userId);
-
-        $userName = $userData->name;
-        $userBalance = $userData->balance;
+        $userName = $user->name;
+        $userBalance = $user->balance;
         $userQuestHistory = self::getQuestHistoryInfo($userId);
 
         return $response->setName($userName)->setBalance($userBalance)->setQuestHistory($userQuestHistory);
