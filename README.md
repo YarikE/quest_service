@@ -74,7 +74,7 @@ cd quest_service/quest-app/
 cp .env.example .env
 ~~~
 
-#### 4. Замените строки 11-16 на
+#### 4. Замените строки 11-16 в файле .env на
 ~~~
 DB_CONNECTION=pgsql
 DB_HOST=postgres
